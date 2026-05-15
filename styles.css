@@ -1,15 +1,15 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #0f0f0f;
-  --surface: #1c1c1e;
-  --surface2: #2c2c2e;
-  --border: #38383a;
+  --bg: #001122;
+  --surface: #002244;
+  --surface2: #003366;
+  --border: #0a4a80;
   --text: #f2f2f7;
-  --muted: #8e8e93;
-  --accent: #e63946;
-  --accent-dark: #c1121f;
-  --green: #30d158;
+  --muted: #8fa8c0;
+  --accent: #69BE28;
+  --accent-dark: #4d8e1e;
+  --green: #69BE28;
   --r: 12px;
 }
 
@@ -85,11 +85,11 @@ header h1 {
 .alert {
   margin: 12px 16px 0;
   padding: 10px 14px;
-  background: #1f1800;
-  border: 1px solid #4a3800;
+  background: #001a33;
+  border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 13px;
-  color: #ffd60a;
+  color: #69BE28;
 }
 
 /* ---- Home ---- */
@@ -167,7 +167,7 @@ header h1 {
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 24px rgba(230, 57, 70, 0.45);
+  box-shadow: 0 4px 24px rgba(105, 190, 40, 0.4);
   z-index: 10;
 }
 
@@ -197,8 +197,8 @@ header h1 {
   border-radius: 10px;
 }
 .section-item.done {
-  border-color: #1c3a1c;
-  background: #0d1f0d;
+  border-color: #69BE28;
+  background: #002244;
 }
 
 .sec-status {
@@ -252,8 +252,8 @@ header h1 {
 .all-done {
   margin: 12px 16px;
   padding: 14px;
-  background: #0d1f0d;
-  border: 1px solid #1c3a1c;
+  background: #002244;
+  border: 1px solid #69BE28;
   border-radius: var(--r);
   font-size: 14px;
   color: var(--green);
@@ -344,9 +344,9 @@ header h1 {
 }
 
 @keyframes pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.5); }
-  70%  { box-shadow: 0 0 0 22px rgba(230, 57, 70, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(105, 190, 40, 0.5); }
+  70%  { box-shadow: 0 0 0 22px rgba(105, 190, 40, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(105, 190, 40, 0); }
 }
 
 .hint    { font-size: 14px; color: var(--muted); }
