@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generate TUP Voice Icons</title>
+  <style>
+    body { font-family: sans-serif; padding: 30px; background: #111; color: #eee; }
+    canvas { border: 1px solid #444; display: block; margin: 10px 0; }
+    button { margin: 5px; padding: 10px 20px; background: #e63946; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; }
+    p { color: #888; font-size: 13px; margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <h2>TUP Voice — Icon Generator</h2>
+  <p>Open this file in a browser, click both Download buttons, then move the PNGs into the <code>icons/</code> folder.</p>
+  <canvas id="c192" width="192" height="192"></canvas>
+  <button id="dl192">Download icon-192.png</button>
+  <canvas id="c512" width="512" height="512"></canvas>
+  <button id="dl512">Download icon-512.png</button>
+  <script>
+    function drawIcon(canvas) {
+      const ctx = canvas.getContext('2d');
+      const s = canvas.width;
+
+      // Background
+      ctx.fillStyle = '#0f0f0f';
+      ctx.fillRect(0, 0, s, s);
+
+      // Red circle
+      ctx.fillStyle = '#e63946';
+      ctx.beginPath();
+      ctx.arc(s / 2, s / 2, s * 0.38, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Mic body
+      ctx.fillStyle = '#ffffff';
+      const mw = s * 0.13;
+      const mh = s * 0.22;
+      const mx = s / 2 - mw / 2;
+      const my = s * 0.28;
+      const r = mw / 2;
+      ctx.beginPath();
+      ctx.moveTo(mx + r, my);
+      ctx.arcTo(mx + mw, my, mx + mw, my + mh, r);
+      ctx.arcTo(mx + mw, my + mh, mx, my + mh, r);
+      ctx.arcTo(mx, my + mh, mx, my, r);
+      ctx.arcTo(mx, my, mx + mw, my, r);
+      ctx.closePath();
+      ctx.fill();
+
+      // Mic arc stand
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = s * 0.038;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.arc(s / 2, s * 0.44, mw * 1.15, 0, Math.PI, true);
+      ctx.stroke();
+
+      // Stand line
+      ctx.beginPath();
+      ctx.moveTo(s / 2, s * 0.44 + mw * 1.15);
+      ctx.lineTo(s / 2, s * 0.64);
+      ctx.stroke();
+
+      // Base
+      ctx.beginPath();
+      ctx.moveTo(s / 2 - mw, s * 0.64);
+      ctx.lineTo(s / 2 + mw, s * 0.64);
+      ctx.stroke();
+    }
+
+    const c192 = document.getElementById('c192');
+    const c512 = document.getElementById('c512');
+    drawIcon(c192);
+    drawIcon(c512);
+
+    document.getElementById('dl192').onclick = () => {
+      const a = document.createElement('a');
+      a.download = 'icon-192.png';
+      a.href = c192.toDataURL('image/png');
+      a.click();
+    };
+    document.getElementById('dl512').onclick = () => {
+      const a = document.createElement('a');
+      a.download = 'icon-512.png';
+      a.href = c512.toDataURL('image/png');
+      a.click();
+    };
+  </script>
+</body>
+</html>
