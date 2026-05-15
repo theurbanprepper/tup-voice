@@ -1,4 +1,4 @@
-const CACHE = 'tup-voice-v1';
+const CACHE = 'tup-voice-v2';
 const ASSETS = ['./', './index.html', './app.js', './styles.css', './manifest.json'];
 
 self.addEventListener('install', e => {
